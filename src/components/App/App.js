@@ -5,7 +5,6 @@ import Dashboard from '../Dashboard/Dashboard.js';
 import Preferences from '../Preferences/Preferences.js';
 import Login from '../Login/Login.js';
 import { useToken } from '../services/token.js';
-import loginImage from '../../images/loginImage.png'
 
 function App() {
   const { setToken, token } = useToken()
@@ -13,7 +12,9 @@ function App() {
   if (!token) {
     return (
       <>
-      <header></header>
+          <header className="header-2">
+          git Repository 👉🏻 <a href="https://github.com/lorenzoVwebDev/loginPage">Login page</a>
+          </header>
       <div className="main-container">
       <div className="login-img-container">
         <img className="login-img"src="https://i.ibb.co/88LGhZh/login-Image.png" alt="" />
@@ -29,8 +30,8 @@ function App() {
   }
   return (
     <>
-    <header>
-    git Repository 👉🏻 <a href="https://github.com/lorenzoVwebDev/Animal-Cards">Login page</a>
+    <header className="header-1">
+    git Repository 👉🏻 <a href="https://github.com/lorenzoVwebDev/loginPage">Login page</a>
     </header>
     <div className="application-wrapper">
       <div className="applications-wrapper">

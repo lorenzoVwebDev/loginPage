@@ -1,5 +1,5 @@
-# Login/subscription page
-A login/subscription page that requests login authorization to the dummy server. It also stores fake contacts into the [users.json](https://github.com/lorenzoVwebDev/login-subscrption/tree/master/server/model) and check hashed password authenticity
+# Login bpage
+A login/subscription page that requests login authorization to the dummy server.
 --
 ### You can find this project here on my personal portfolio --> [lorenzo-viganego.com](https://www.lorenzo-viganego.com/#portfolio)
 --

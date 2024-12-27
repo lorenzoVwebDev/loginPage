@@ -111,6 +111,16 @@ body {
   & input::placeholder {
     color: hsla(0, 0%, 20%, 0.2);
   }
+
+  & li {
+    @include poppin-thin();
+    font-size: 0.97em;
+  }
+
+  & ul span {
+    color: #E4FC5B;    ;
+    font-weight: bold;
+  }
 }
 
 
@@ -164,7 +174,10 @@ body {
     text-align: center;
   }
   & h3 {
-    text-align: center,
+    text-align: center;
+  }
+  & h2 {
+    text-align: center;
   }
   & li {
     @include poppin-bold();

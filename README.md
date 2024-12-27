@@ -1,6 +1,11 @@
 # Login bpage
 A login/subscription page that requests login authorization to the dummy server.
 --
+## Features
+- [Request to backend.lorenzo-viganego.com to manage the credentials' check.](https://github.com/lorenzoVwebDev/login-authorization)
+- [State management to handle the UI response based on whether the token has been retrieved or not.](https://github.com/lorenzoVwebDev/loginPage/blob/master/src/components/App/App.js)
+- [Function running on synthetic events](https://github.com/lorenzoVwebDev/loginPage/blob/master/src/components/Login/Login.js)
+- [Html attributes usage (including regex) to filter text inputs](https://github.com/lorenzoVwebDev/loginPage/blob/master/src/components/Login/Login.js)
 ### You can find this project here on my personal portfolio --> [lorenzo-viganego.com](https://www.lorenzo-viganego.com/#portfolio)
 --
 ### Socials

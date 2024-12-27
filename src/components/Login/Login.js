@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { loginUser } from '../services/loginUser.js'
 
@@ -42,12 +42,21 @@ function Login({ setToken, setAuthok, authok }) {
     return (
       <div className="login-wrapper">
         <h4>Username or password are wrong!</h4>
+        <div>
+        <h4>Would you like to try my login page?</h4>
+        <h4>Try to use one of these credentials below!</h4>
+        <ul>
+          <li>Username: <span>lorenzo</span> Password: <span>Domenica@47</span></li>
+          <li>Username: <span>francesco</span> Password: <span>Fiatpunto#14</span></li>
+          <li>Username: <span>matteo</span> Password: <span>Minicooper@68</span></li>
+        </ul>
+        </div>
         <form onSubmit={handleSubmit} className="login-form">
           <label>
             <input type="text" placeholder="Username" minLength="4" maxLength="25" pattern="[A-Za-z]+" required onChange={(e) => {setUsername(e.target.value)}}/>
           </label>
           <label>
-            <input type="password" placeholder=" Password"onChange={(e) => {setPassword(e.target.value)}}/>
+            <input type="password" placeholder="Password"onChange={(e) => {setPassword(e.target.value)}}/>
           </label>
           <div>
           <button type="submit" className="login-button">Login</button>

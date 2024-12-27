@@ -1,5 +1,5 @@
 const backendurl = 'https://backend.lorenzo-viganego.com/';
-const localhost = 'http://localhost:3001/'
+const localhost = 'http://localhost:3000/'
 
 export function loginUser(credentials) {
   const token = fetch(`${backendurl}dummylogin`, {

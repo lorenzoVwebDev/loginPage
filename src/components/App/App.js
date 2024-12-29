@@ -6,12 +6,23 @@ import Preferences from '../Preferences/Preferences.js';
 import Login from '../Login/Login.js';
 import { useToken } from '../services/token.js';
 import { createUseStyles } from 'react-jss'
+let fontBool = false;
+window.addEventListener('resize', () => {
+  if (window.innerWidth<1100) {
+    fontBool = true;
+  } else {
+    fontBool = false;
+  }
+})
+
 
 const useStyles = createUseStyles({
   link: {
-    color: 'white',
-    fontSize: '2.1vw',
-    borderStyle: 'solid'
+    color: '#FF8C00',
+    fontSize: fontBool ? '3.5' : '2.5',
+    borderStyle: 'solid',
+    WebkitTextStrokeWidth: '1px',
+    WebkitTextStrokeColor: 'black'
   }
 })
 /* const useStyles = createUseStyles({
@@ -22,10 +33,13 @@ const useStyles = createUseStyles({
   }
 }) */
 
+
 function App() {
   const classes = useStyles();
   const { setToken, token } = useToken()
   const [ authok, setAuthok] = useState(true)
+
+
   if (!token) {
     return (
       <>

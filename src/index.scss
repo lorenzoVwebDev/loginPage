@@ -7,23 +7,7 @@
   scroll-behavior: smooth;
   text-decoration: none;
 }
-@mixin poppin-thin() {
-  font-family: "Poppins", serif;
-  font-weight: 100;
-  font-style: normal;
-}
-
-@mixin poppin-regular() {
-  font-family: "Poppins", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-@mixin poppin-bold() {
-  font-family: "Poppins", serif;
-  font-weight: 700;
-  font-style: normal;
-}
+@import './mixin';
 
 $display-flex: flex;
 $white-font: rgb(255, 255, 255);
@@ -37,16 +21,19 @@ body {
   margin: 0;
   @include poppin-regular();
   height: 100%;
+
 }
 
 #root {
   height: 100%;
+
 }
 .header-1 {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 7vh;
+
   background-color: $orange; 
   margin-bottom: 1vh;
   border-bottom-style: solid;
@@ -63,6 +50,7 @@ body {
 }
 
 .main-container {
+  position: relative;
   display: flex;
   align-items: center;
   height: 100%;
@@ -111,14 +99,19 @@ body {
   & input::placeholder {
     color: hsla(0, 0%, 20%, 0.2);
   }
-
-  & li {
+  & ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5vw;
     @include poppin-thin();
-    font-size: 0.97em;
+    font-size: calc(0.7vw + 0.7vh);
+
   }
 
   & ul span {
-    color: #E4FC5B;    ;
+    color: #E4FC5B;    
     font-weight: bold;
   }
 }
@@ -167,23 +160,39 @@ body {
 
 .applications-wrapper {
   position: absolute;
-  top: 0;
+  top: 1;
   display: flex;
   flex-direction: column;
   & h1 {
+    font-size: calc(1.5vw + 1vh);
     text-align: center;
-  }
-  & h3 {
-    text-align: center;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $white-font;
   }
   & h2 {
+    font-size: calc(1.2vw + 0.9vh);
     text-align: center;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $white-font;
+  }
+  & h3 {
+    font-size: calc(1.2vw + 0.9vh);
+    text-align: center;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $white-font;
   }
   & li {
+    display: none;
     @include poppin-bold();
     text-align: center;
   }
 }
+
+.h4-login2 {
+  font-size: calc(1vw + 1vh);
+}
+
+@import './adaptive';
 
 
 

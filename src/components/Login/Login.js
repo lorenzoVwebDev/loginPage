@@ -41,10 +41,10 @@ function Login({ setToken, setAuthok, authok }) {
   } else {
     return (
       <div className="login-wrapper">
-        <h4>Username or password are wrong!</h4>
+        <h4 className="h4-login2">Username or password are wrong!</h4>
         <div>
-        <h4>Would you like to try my login page?</h4>
-        <h4>Try to use one of these credentials below!</h4>
+        <h4 className="h4-login2">Would you like to try my login page?</h4>
+        <h4 className="h4-login2">Try to use one of these credentials below!</h4>
         <ul>
           <li>Username: <span>lorenzo</span> Password: <span>Domenica@47</span></li>
           <li>Username: <span>francesco</span> Password: <span>Fiatpunto#14</span></li>

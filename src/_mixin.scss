@@ -1,0 +1,17 @@
+@mixin poppin-thin() {
+  font-family: "Poppins", serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+@mixin poppin-regular() {
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin poppin-bold() {
+  font-family: "Poppins", serif;
+  font-weight: 700;
+  font-style: normal;
+}

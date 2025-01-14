@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 /* import { loginUser } from '../services/loginUser.js' */
 import { LoginUser } from '../CustomHooks'
@@ -8,6 +8,7 @@ function Login({ setToken, setAuthok, authok }) {
   const [ pwr, setPassword ] = useState();
   const [credentials, setCredentials ] = useState({first: true});
   const [loginUser] = LoginUser(credentials);
+  
   useEffect(()=> {
     let isMounted = true;
     const handleSubmit = async () => {
@@ -21,7 +22,7 @@ function Login({ setToken, setAuthok, authok }) {
         const payload = await body.then((payload) => {
           return payload
         })
-
+        console.log(isMounted)
         if (status == 401) {
           setAuthok(false);
           return () => isMounted = false;

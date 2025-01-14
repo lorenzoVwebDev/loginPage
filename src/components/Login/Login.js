@@ -1,27 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { loginUser } from '../services/loginUser.js'
-import { LoginUser } from '../CustomHooks/'
+/* import { loginUser } from '../services/loginUser.js' */
+import { LoginUser } from '../CustomHooks'
 
 function Login({ setToken, setAuthok, authok }) {
   const [ username, setUsername ] = useState()
   const [ pwr, setPassword ] = useState();
   const [credentials, setCredentials ] = useState({first: true});
-
+  const [loginUser] = LoginUser(credentials);
   useEffect(()=> {
     let isMounted = true;
     const handleSubmit = async () => {
-      const response = await loginUser(credentials)
+      const response = await loginUser(credentials);
+
+      console.log(response)
       
-      if (response != undefined) {
+      if (response != undefined ) {
  
         const { body, status} = response;
         const payload = await body.then((payload) => {
           return payload
         })
-        console.log(payload)
-        console.log(status)
 
         if (status == 401) {
           setAuthok(false);
@@ -36,9 +35,12 @@ function Login({ setToken, setAuthok, authok }) {
      
     }
 
-    handleSubmit();
-
-    return () => isMounted = false 
+    if (credentials?.first != true) {
+      handleSubmit();
+      return () => isMounted = false; 
+    } else {
+      return () => isMounted = false;
+    }
   }, [credentials])
 
   if (authok) {

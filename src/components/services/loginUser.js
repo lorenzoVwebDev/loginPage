@@ -4,7 +4,7 @@ const localhost = 'http://localhost:3000/'
 export function loginUser(credentials) {
   if (credentials?.first != true) {
 
-  const response = fetch(`${localhost}dummylogin`, {
+  const response = fetch(`${backendurl}dummylogin`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

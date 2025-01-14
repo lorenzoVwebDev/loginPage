@@ -1,27 +1,20 @@
 const backendurl = 'https://backend.lorenzo-viganego.com/';
 const localhost = 'http://localhost:3000/'
 
-export function loginUser(credentials) {
-  if (credentials?.first != true) {
-
-  const response = fetch(`${localhost}dummylogin`, {
+export function LoginUser(credentials) {
+  const token = fetch(`${localhost}dummylogin`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(credentials)   
   }).then((response) => {
-
-  return {
-    body: response.json(),
-    status: response.status
-   } 
+   return response.json()
   }).catch((error) => {
     console.error('Error:', error)
   })
 
-  return response
-  } else {
-    return 
-  }
+  return token;
 }
+
+export default LoginUser;

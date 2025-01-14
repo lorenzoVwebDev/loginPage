@@ -1,31 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { loginUser } from '../services/loginUser.js'
+import { LoginUser } from '../CustomHooks/'
 
 function Login({ setToken, setAuthok, authok }) {
   const [ username, setUsername ] = useState()
-  const [ pwr, setPassword ] = useState()
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const [ pwr, setPassword ] = useState();
+  const [credentials, setCredentials ] = useState({first: true});
 
-    const response = await loginUser({
-      username,
-      pwr
-    })
+  useEffect(()=> {
+    let isMounted = true;
+    const handleSubmit = async () => {
+      const response = await loginUser(credentials)
+      
+      if (response != undefined) {
+ 
+        const { body, status} = response;
+        const payload = await body.then((payload) => {
+          return payload
+        })
+        console.log(payload)
+        console.log(status)
 
-    if (!response?.token) {
-      setAuthok(false)
-    } else {
-      setAuthok(true)
-      setToken(response.token)
+        if (status == 401) {
+          setAuthok(false);
+          return () => isMounted = false;
+        } else if (status >= 200) {
+          setAuthok(true)
+          setToken(payload.token)
+        }
+      } else {
+        return () => isMounted = false;
+      }
+     
     }
-  }
+
+    handleSubmit();
+
+    return () => isMounted = false 
+  }, [credentials])
+
   if (authok) {
     return (
       <div className="login-wrapper">
         <h4>Welcome! I'm glad to present<br/><span>my login project!</span></h4>
-        <form onSubmit={handleSubmit} className="login-form">
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          setCredentials({
+            username,
+            pwr
+          })
+        }} className="login-form">
           <label>
             <input type="text" placeholder="Username" minLength="4" maxLength="25" pattern="[A-Za-z]+" required title="User id must contain eight or more characters." onChange={(e) => {setUsername(e.target.value)}}/>
           </label>
@@ -51,7 +77,13 @@ function Login({ setToken, setAuthok, authok }) {
           <li>Username: <span>matteo</span> Password: <span>Minicooper@68</span></li>
         </ul>
         </div>
-        <form onSubmit={handleSubmit} className="login-form">
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          setCredentials({
+            username,
+            pwr
+          })
+        }} className="login-form">
           <label>
             <input type="text" placeholder="Username" minLength="4" maxLength="25" pattern="[A-Za-z]+" required onChange={(e) => {setUsername(e.target.value)}}/>
           </label>

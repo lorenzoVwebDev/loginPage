@@ -1,4 +1,4 @@
-# Login bpage
+# Login page
 A login/subscription page that requests login authorization to the dummy server.
 --
 ## Features
@@ -6,6 +6,9 @@ A login/subscription page that requests login authorization to the dummy server.
 - [State management to handle the UI response based on whether the token has been retrieved or not.](https://github.com/lorenzoVwebDev/loginPage/blob/master/src/components/App/App.js)
 - [Function running on synthetic events](https://github.com/lorenzoVwebDev/loginPage/blob/master/src/components/Login/Login.js)
 - [Html attributes usage (including regex) to filter text inputs](https://github.com/lorenzoVwebDev/loginPage/blob/master/src/components/Login/Login.js)
+- [Usage of useEffect to send requests only if the credentials change](https://github.com/lorenzoVwebDev/loginPage/blob/master/src/components/Login/Login.js)
+- [Custom Hook to handle post request to verify credentials, useCallback used to memoize the function avoiding useless recalculation](https://github.com/lorenzoVwebDev/loginPage/blob/master/src/components/CustomHooks/LoginUser/LoginUser.js)
+-
 ### You can find this project here on my personal portfolio --> [lorenzo-viganego.com](https://www.lorenzo-viganego.com/#portfolio)
 --
 ### Socials

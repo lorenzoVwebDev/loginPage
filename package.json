@@ -5,6 +5,7 @@
   "dependencies": {
     "all": "^0.0.0",
     "cra-template": "1.2.0",
+    "node": "^22.13.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-jss": "^10.10.0",
@@ -18,7 +19,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "nodemon \"C:/Users/loren/webDevelopment/Projects/ReactProjects/login-subscription/login/src/components/CustomHooks/LoginUser/LoginUser.js\""
   },
   "eslintConfig": {
     "extends": [
@@ -37,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }
